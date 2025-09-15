@@ -1,8 +1,13 @@
 import 'package:bloc_practice/bloc/counter_bloc/counter_bloc.dart';
+import 'package:bloc_practice/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_practice/bloc/switch_bloc/switch_bloc.dart';
+import 'package:bloc_practice/bloc/todo/todo_bloc.dart';
 import 'package:bloc_practice/equatble_test.dart';
 import 'package:bloc_practice/ui/counter/counter_screen.dart';
+import 'package:bloc_practice/ui/image_picker/image_picker.dart';
 import 'package:bloc_practice/ui/switch/switch_example.dart';
+import 'package:bloc_practice/ui/todo/todo.dart';
+import 'package:bloc_practice/utils/image_picker_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +28,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SwitchBloc(),
         ),
+        BlocProvider(
+          create: (context) => ImagePickerBloc(ImagePickerUtils()),
+        ),
+        BlocProvider(
+          create: (context) => TodoBloc(),
+        ),
+        
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -30,7 +42,7 @@ class MyApp extends StatelessWidget {
 
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: CounterScreen(),
+        home:TodoScreen(),
       ),
     );
   }
