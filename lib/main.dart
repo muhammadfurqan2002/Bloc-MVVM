@@ -1,9 +1,12 @@
 import 'package:bloc_practice/bloc/counter_bloc/counter_bloc.dart';
+import 'package:bloc_practice/bloc/fav_bloc/fav_blc_bloc.dart';
 import 'package:bloc_practice/bloc/image_picker/image_picker_bloc.dart';
 import 'package:bloc_practice/bloc/switch_bloc/switch_bloc.dart';
 import 'package:bloc_practice/bloc/todo/todo_bloc.dart';
 import 'package:bloc_practice/equatble_test.dart';
+import 'package:bloc_practice/repository/favourite_repository.dart';
 import 'package:bloc_practice/ui/counter/counter_screen.dart';
+import 'package:bloc_practice/ui/fav/favurite.dart';
 import 'package:bloc_practice/ui/image_picker/image_picker.dart';
 import 'package:bloc_practice/ui/switch/switch_example.dart';
 import 'package:bloc_practice/ui/todo/todo.dart';
@@ -34,15 +37,19 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => TodoBloc(),
         ),
+        BlocProvider(
+          create: (context) => FavBlcBloc(FavouriteRepository()),
+        ),
         
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
+        themeMode: ThemeMode.dark,
         theme: ThemeData(
-
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            brightness: Brightness.dark,
+            useMaterial3: true
         ),
-        home:TodoScreen(),
+        home:Favourite(),
       ),
     );
   }
