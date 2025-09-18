@@ -9,6 +9,7 @@ import 'package:bloc_practice/repository/favourite_repository.dart';
 import 'package:bloc_practice/repository/post_repository.dart';
 import 'package:bloc_practice/ui/counter/counter_screen.dart';
 import 'package:bloc_practice/ui/fav/favurite.dart';
+import 'package:bloc_practice/ui/home_screen.dart';
 import 'package:bloc_practice/ui/image_picker/image_picker.dart';
 import 'package:bloc_practice/ui/posts/post_scree.dart';
 import 'package:bloc_practice/ui/switch/switch_example.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,
             useMaterial3: true
         ),
-        home:PostScreen(),
+        home:HomeScreen(),
       ),
     );
   }
